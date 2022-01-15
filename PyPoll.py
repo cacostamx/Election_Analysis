@@ -14,6 +14,8 @@ winning_candidate = ""
 winning_count = 0
 winning_percentage = 0
 candidate_dict = {}
+winner = ""
+txt_results = ""
 
 # Open the election results and read file
 # Method of opening and then closing
@@ -44,21 +46,45 @@ with open(file_to_load) as election_data:
             candidate_dict[candidate_name] = row[1]
         candidate_votes[candidate_name] = candidate_votes[candidate_name] + 1
 
-for candidate_name in candidate_options:
-    votes = candidate_votes[candidate_name]
-    vote_percentage = float(votes)/float(total_votes)
-    print(f"{candidate_name}: recevied {vote_percentage:.2%} of the vote.")
-    if (votes > winning_count) and (vote_percentage > winning_percentage):
-        winning_count = votes
-        winning_percentage = vote_percentage
-        winning_candidate = candidate_name
-    print(f"{candidate_name}: {vote_percentage:.2%} ({votes:,})\n")
+# Using with to write open file
+with open(file_to_save,"w") as txt_file:
+    
+    election_results = (
+        f"\nElection Results\n" +
+        f"-------------------------\n"
+        f"Total Votes: {total_votes:,}\n"
+        f"-------------------------\n")
+    print(election_results, end="")
+    txt_file.write(election_results)
 
-print(f"Total votes: {total_votes:,}")
-print(candidate_options)
-print(candidate_votes)
+    for candidate_name in candidate_options:
+        votes = candidate_votes[candidate_name]
+        vote_percentage = float(votes)/float(total_votes)
+        #print(f"{candidate_name}: received {vote_percentage:.2%} of the vote.")
+        
+        # Determine winning vote count, winning percentage, and candidate.
+        if (votes > winning_count) and (vote_percentage > winning_percentage):
+            winning_count = votes
+            winning_percentage = vote_percentage
+            winning_candidate = candidate_name
+        candidate_results = (f"{candidate_name}: {vote_percentage:.2%} ({votes:,})\n") 
+        print(candidate_results)
+        # write results to file
+        txt_file.write(candidate_results)
 
-print(f"The winning candidate is {winning_candidate} from {candidate_dict[winning_candidate]} with {winning_count:,} votes, that represent {winning_percentage:.2%} of the election")
+
+# print(f"Total votes: {total_votes:,}")
+# print(candidate_options)
+# print(candidate_votes)
+
+    winner = (
+        f"-------------------------\n"
+        f"Winner: {winning_candidate} from {candidate_dict[winning_candidate]}\n"
+        f"Winning Vote Count: {winning_count:,}\n"
+        f"Winning Percentage: {winning_percentage:.2%}")
+    print(winner)
+    # Save winner to txt_file
+    txt_file.write(winner)
 
 # Using the open() function with the "w" mode we will write data to the file.
 # outfile = open(file_to_save, "w")
@@ -66,10 +92,10 @@ print(f"The winning candidate is {winning_candidate} from {candidate_dict[winnin
 # outfile.close()
 
 # Using with to write open file
-with open(file_to_save,"w") as txt_file:
+#with open(file_to_save,"w") as txt_file:
     # Write to file
     #txt_file.write("Arapahoe, Denver, Jefferson")  #same line
-    txt_file.write("Counties in the election\n------------------------\nArapahoe\nDenver\nJefferson")   #different lines
+    #txt_file.write("Counties in the election\n------------------------\nArapahoe\nDenver\nJefferson")   #different lines
 
 # 1. Cast all votes
 # 2. Make list of candidates
