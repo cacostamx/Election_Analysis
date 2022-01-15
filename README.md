@@ -33,9 +33,11 @@ The analysis of the election show that:
     - Winning Vote Count: **272,892**
     - Winning Percentage: **73.81%**
 
-- These results were saved to the file "election_results.txt" as the following image shows:
-
-    ![Text file with audit results](/Resources/Txt_output.png)
+- These results are printed to the termina where the program is run and also  saved to the file "election_results.txt" as the following images shows:
+    - Results printed in command line:
+        ![Terminal output with audit results](/Resources/Terminal_output.png)
+    - Results in file:
+        ![Text file with audit results](/Resources/Txt_output.png)
 
 ## Electon Audit Summary
 
