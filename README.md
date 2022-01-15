@@ -36,7 +36,9 @@ The analysis of the election show that:
 - These results are printed to the termina where the program is run and also  saved to the file "election_results.txt" as the following images shows:
     - Results printed in command line:
         ![Terminal output with audit results](/Resources/Terminal_output.png)
-    - Results in file:
+    
+    - Results written in text file:
+    
         ![Text file with audit results](/Resources/Txt_output.png)
 
 ## Electon Audit Summary
