@@ -34,7 +34,7 @@ The analysis of the election show that:
     - Winning Vote Count: **272,892**
     - Winning Percentage: **73.81%**
 
-- These results are printed to the termina where the program is run and also  saved to the file "election_results.txt" as the following images shows:
+- These results are printed to the termina where the program is run and also  saved to the file "election_results.txt" as the following images show:
     - Results printed in command line:
         ![Terminal output with audit results](/Resources/Terminal_output.png)
     
