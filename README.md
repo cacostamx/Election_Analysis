@@ -42,7 +42,7 @@ The analysis of the election show that:
     
         ![Text file with audit results](/Resources/Txt_output.png)
 
-## Electon Audit Summary
+## Election Audit Summary
 
 Given that the file analyzed contained all the election results for a local congressional election in Colorado, the audit was performed with a python code in under 3 seconds.  The code shows the election results by candidate and by County, giving the number of votes as well the percentage of votes for each case, resulting in determining the winner.  With this kind of audit, larger public elections can be audited within seconds of having the results file to be analyzed, even for state or federal elections.
 
